@@ -1,3 +1,18 @@
+SELECT REPLACE(IM.`Title`,'%[^[()]]%','') AS REALNAME,GN.genre FROM `imdb` AS IM 
+JOIN `genre` AS GN ON IM.Movie_id = GN.Movie_id 
+JOIN `earning` AS EN ON IM.Movie_id= EN.Movie_id
+WHERE IM.`Budget`< EN.Worldwide AND IM.Rating>5;
+
+SELECT IM.TITLE,
+CASE 
+WHEN EN.Worldwide>10000000 OR EN.Worldwide<100000000 THEN 'OKOK'
+WHEN EN.Worldwide>100000000 OR EN.Worldwide<1000000000 THEN 'BEST'
+WHEN EN.Worldwide>1000000000 THEN 'VERY BEST'
+END AS MOVIEGROSS
+FROM imdb AS IM  JOIN earning AS EN;
+
+SELECT POWER(4,3) AS POWER;
+
 --
 -- File generated with SQLiteStudio v3.3.2 on Thu Mar 25 13:50:51 2021
 --
