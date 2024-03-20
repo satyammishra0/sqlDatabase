@@ -18,3 +18,15 @@ try {
 } catch (PDOException $th) {
     throw $th;
 }
+
+$filePath = "./artist.csv";
+
+// r is read mode 
+$fileData = fopen($filePath, 'r');
+
+// while()
+
+// foreach ( as $value) {
+//     # code...
+//     print_r($value);
+// }
